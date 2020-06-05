@@ -2,7 +2,7 @@
 
 let globalCache = [];
 
-// Constructor function
+// Constructor function MODDING TO SAVE
 function HornImage(horns) {
   this.keyword = horns.keyword;
   this.description = horns.description;
