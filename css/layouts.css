@@ -1,15 +1,17 @@
  main {
-     margin: auto;
-     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: space-around;
+     flex-grow: initial;
+     /* margin: auto;
+     width: 100%; */
  }
  
  section {
-    display: table;
+    display: flex;
+    align-content: space-between;
     max-height: 210px;
-    /* width: 33%; */
-    padding: .1rem;
-    /* margin-top: .2rem;
-    margin-bottom: .2rem; */
+    padding: 1rem;
     border: solid black 1px;
     margin: auto;
     word-wrap: break-word;
@@ -19,22 +21,18 @@
 
 section img {
     max-height: 150px;
-    /* margin-left: auto;
-    margin-right: auto;
-    width: 8em */
     margin: 1em;
     border: solid red 1px;
     margin-top: 1px;
-    
+    max-width: 100px;
+    margin: auto;
 }
 
 select {
-    /* clear: both;
+    clear: both;
     width: 10rem;
     width: 50%;
-    margin: 0 auto; */
-    /* margin-left: auto; */
-    /* margin-left: 50%; */
+    margin: 0 auto;
 }
 
 h1{
@@ -78,29 +76,34 @@ header {
 /* On Desktop, float the divs in the section and center them */
 @media(min-width: 960px) {
 
-    body{
-    background-color: navy;
+    body {
+      background-color: rgb(87, 87, 121);
     }
 
     select {
         width: 10rem;
         width: 10%;
         margin: auto;
-        /* margin-left: 50%; */
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     section {
-      float: left;
-      margin: 20px;
-      overflow: auto;
+      margin: auto;
       width: 30%;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
 
-      section:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
+    section:after {
+       content: "";
+       display: table;
+       clear: both;
+     }
 
       section img {
           margin-left: auto;
