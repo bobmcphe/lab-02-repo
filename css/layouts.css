@@ -29,10 +29,10 @@ section img {
 }
 
 select {
-    clear: both;
+    /* clear: both;
     width: 10rem;
     width: 50%;
-    margin: 0 auto;
+    margin: 0 auto; */
     /* margin-left: auto; */
     /* margin-left: 50%; */
 }
@@ -41,6 +41,7 @@ h1{
     font-family: 'Arial', cursive;
     font-size: 30px;
     text-align: center;
+    color: white;
 }
 
 h2{
@@ -66,6 +67,13 @@ footer {
     width: 160px;
 }
 
+header {
+    /* align-content: center; */
+    /* margin: 0 auto; */
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* On Desktop, float the divs in the section and center them */
 @media(min-width: 960px) {
@@ -79,15 +87,13 @@ footer {
         width: 10%;
         margin: auto;
         /* margin-left: 50%; */
-        
-
     }
 
     section {
       float: left;
-      margin: 15px;
+      margin: 20px;
       overflow: auto;
-      width: 31%;
+      width: 30%;
     }
 
       section:after {
