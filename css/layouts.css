@@ -1,0 +1,108 @@
+ main {
+     margin: auto;
+     width: 100%;
+ }
+ 
+ section {
+    display: table;
+    max-height: 210px;
+    /* width: 33%; */
+    padding: .1rem;
+    /* margin-top: .2rem;
+    margin-bottom: .2rem; */
+    border: solid black 1px;
+    margin: auto;
+    word-wrap: break-word;
+    background-color: burlywood;
+} 
+
+
+section img {
+    max-height: 150px;
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 8em */
+    margin: 1em;
+    border: solid red 1px;
+    margin-top: 1px;
+    
+}
+
+select {
+    clear: both;
+    width: 10rem;
+    width: 50%;
+    margin: 0 auto;
+    /* margin-left: auto; */
+    /* margin-left: 50%; */
+}
+
+h1{
+    font-family: 'Arial', cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: -3px;
+}
+
+p {
+    width: 10em;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 0px;
+    margin: auto;
+}
+
+footer {
+    margin-top: 25px;
+    clear: both;
+    padding: 10px;
+    font-size: 21px;
+    margin: auto;
+    width: 160px;
+}
+
+
+/* On Desktop, float the divs in the section and center them */
+@media(min-width: 960px) {
+
+    body{
+    background-color: navy;
+    }
+
+    select {
+        width: 10rem;
+        width: 10%;
+        margin: auto;
+        /* margin-left: 50%; */
+        
+
+    }
+
+    section {
+      float: left;
+      margin: 15px;
+      overflow: auto;
+      width: 31%;
+    }
+
+      section:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      section img {
+          margin-left: auto;
+          margin-right: auto;
+          width: 55%;
+          /* height: 85%; */
+          display: block;
+          margin-top: 10px;
+      }
+
+  }
