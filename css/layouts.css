@@ -1,0 +1,16 @@
+section {
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 33%
+}
+
+section img {
+    max-height: 100px;
+    display: fill;
+}
+
+main{
+    width: 1060px;
+}
