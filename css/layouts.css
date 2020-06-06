@@ -8,9 +8,23 @@ section {
 
 section img {
     max-height: 100px;
-    display: fill;
+    object-fit: fill !important;
 }
 
 main{
     width: 1060px;
 }
+
+h1{
+    font-family: 'Arial', cursive;
+    font-size: 30px;
+}
+
+h2{
+    text-align: center;
+}
+
+div{
+    height: 300px;
+    width: 300px;
+  }
