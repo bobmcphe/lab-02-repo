@@ -22,6 +22,8 @@ HornsImage.prototype.render = function(){
     $hornsClone.find('img').attr('src', this.imageUrl);
     $hornsClone.find('p').text(this.description);
     $hornsClone.attr('data-keyword', this.keyword);
+    $hornsClone.removeAttr('id');
+
     // $hornsClone.attr('class', 'hornCard');
 
 };
