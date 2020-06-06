@@ -43,7 +43,7 @@ function addDropDownOptions (){
   });
 }
 
-$.ajax('data/page-1.json', {
+$.ajax('data/page-1.json', 'data/page-2.json', {
   method: 'get', 
   dataType: 'json',
 })
@@ -51,9 +51,9 @@ $.ajax('data/page-1.json', {
     horns.forEach(horn => {
       new HornsImage(horn);
     });
-    globalCache.forEach(item => {
-      item.render();
-    });
+    // globalCache.forEach(item => {
+    //   item.render();
+    // });
     addDropDownOptions();
     $('select').on('change', function(){
       $('section').hide();
@@ -64,6 +64,44 @@ $.ajax('data/page-1.json', {
       });
     });
   });
+
+
+  $.ajax('data/page-2.json', {
+    method: 'get', 
+    dataType: 'json',
+  })
+    .then(horns => {
+      horns.forEach(horn => {
+        new HornsImage(horn);
+      });
+      globalCache.forEach(item => {
+        item.render();
+      });
+      addDropDownOptions();
+      $('select').on('change', function(){
+        $('section').hide();
+        $('section').each((index, element) => {
+          if(this.value === $(element).attr('data-keyword')){
+            $(element).show();
+          };
+        });
+      });
+    });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Used Carrington's code as guide and help

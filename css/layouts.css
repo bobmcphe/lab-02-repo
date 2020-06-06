@@ -1,7 +1,13 @@
- main {
+body {
+    background-color: ivory;
+    width: 100%;
+}
+
+main {
      display: flex;
-     flex-direction: column;
+     flex-direction: row;
      justify-content: space-evenly;
+     flex-wrap: wrap;
      margin: auto;
      width: 100%;
  }
@@ -24,7 +30,6 @@ section img {
     margin: 1em;
     border: solid red 1px;
     margin-top: 1px;
-    /* max-width: 200px; */
     margin: auto;
     margin-bottom: 50px;
 }
@@ -32,7 +37,7 @@ section img {
 select {
     clear: both;
     width: 10rem;
-    width: 50%;
+    width: 25%;
     margin: 0 auto;
 }
 
@@ -47,6 +52,7 @@ h2{
     text-align: center;
     padding-top: 5px;
     padding-bottom: -3px;
+    font-style;
 }
 
 p {
@@ -81,8 +87,7 @@ header {
     }
 
     select {
-        width: 10rem;
-        width: 10%;
+        width: 25%;
         margin: auto;
     }
 
