@@ -45,9 +45,9 @@ $.ajax('data/page-1.json', {
   method: 'get', 
   dataType: 'json',
 })
-  .then(images => {
-    images.forEach(image => {
-      new HornsImage(image);
+  .then(horns => {
+    horns.forEach(horn => {
+      new HornsImage(horn);
     });
     globalCache.forEach(item => {
       item.render();
@@ -64,7 +64,7 @@ $.ajax('data/page-1.json', {
   });
 
 
-
+// Used Carrington's code as guide and help
 // let globalCache = [];
 // let keyWords = [];
 
