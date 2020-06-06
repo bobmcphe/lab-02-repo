@@ -67,11 +67,10 @@ footer {
 }
 
 header {
-    /* align-content: center; */
-    /* margin: 0 auto; */
     width: 50rem;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 /* On Desktop, float the divs in the section and center them */
