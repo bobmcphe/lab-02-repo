@@ -1,14 +1,13 @@
 section {
     max-height: 150px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 33%
+    float: left;
+    width: 33%;
+    object-fit: fill !important;
 }
 
 section img {
     max-height: 100px;
-    object-fit: fill !important;
+  
 }
 
 main{
