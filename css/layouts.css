@@ -43,11 +43,11 @@ p {
     padding: 0px;
     margin: auto;
 }
-/* 
+
 footer {
     margin-top: 25px;
-    display: block;
-} */
+    clear: both;
+}
 
 
 /* On Desktop, float the divs in the section and center them */
