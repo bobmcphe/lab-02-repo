@@ -43,8 +43,11 @@ p {
     padding: 0px;
     margin: auto;
 }
-
-
+/* 
+footer {
+    margin-top: 25px;
+    display: block;
+} */
 
 
 /* On Desktop, float the divs in the section and center them */
@@ -57,10 +60,21 @@ p {
     section {
       float: left;
       margin: 15px;
+      overflow: auto;
+      width: 31%;
     }
-  
-    /* div {
-      float: left;
-      margin: 2em;
-    } */
+
+      section:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      section img {
+          margin-left: auto;
+          margin-right: auto;
+          width: 15em;
+          display: block;
+      }
+
   }
