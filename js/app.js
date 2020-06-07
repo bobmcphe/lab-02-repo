@@ -1,7 +1,7 @@
 'use strict';
 
-let globalCache = [];
-let allKeywords = [];
+let globalCache1 = [];
+let allKeywordsArray = [];
 
 function HornsImage(horns){
   this.title = horns.title;
@@ -9,7 +9,7 @@ function HornsImage(horns){
   this.description = horns.description;
   this.keyword = horns.keyword;
   this.horns = horns.horns;
-  globalCache.push(this);
+  globalCache1.push(this);
   addKeyword(horns.keyword);
 }
 
@@ -23,27 +23,75 @@ HornsImage.prototype.render = function(){
     $hornsClone.find('p').text(this.description);
     $hornsClone.attr('data-keyword', this.keyword);
     $hornsClone.removeAttr('id');
-
-    // $hornsClone.attr('class', 'hornCard');
-
+    $hornsClone.find('h2').addClass('p1');
+    // HornsImage.prototype.render = function(){
+    //   let page1Button =  $('#p1').html();
+    //   let page2Button =  $('#p2').html();
+    // };
 };
 
 function addKeyword(keyword){
-  if(!allKeywords.includes(keyword)){
-    allKeywords.push(keyword);
+  if(!allKeywordsArray.includes(keyword)){
+    allKeywordsArray.push(keyword);
   }
 }
 
+// adds keywords to dropdown
 function addDropDownOptions (){
   let $dropdown = $('select');
 
-  allKeywords.forEach(keyword => {
+  allKeywordsArray.forEach(keyword => {
     let $newOption = $(`<option value="${keyword}">${keyword}</option>`);
     $dropdown.append($newOption);
   });
 }
 
-$.ajax('data/page-1.json', 'data/page-2.json', {
+// DROPDWON OPTION FUCTION ------------------------
+
+addDropDownOptions();
+
+$('select').on('change', function(){
+  $('section').hide();
+  $('section').each((index, element) => {
+    if(this.value === $(element).attr('data-keyword')){
+      $(element).show();
+    };
+  });
+});
+// DROPDWON OPTION FUCTION ------------------------
+
+// $('#p1').on('click', function(){
+//   $('globalCach2').hide();
+//   $('section').each((index, element) => {
+//     if(this.value === $(element).attr('data-keyword')){
+//       $(element).show();
+//     };
+//   });
+// });
+
+
+// $('#p1').click(function(){
+//   $('globalCach2').hide();
+//   $('section').each((index, element) => {
+//     if(this.value === $(element).attr('data-keyword')){
+//       $(element).show();
+//     };
+//   });
+// });
+
+
+$( "#p1" ).click(function() {
+  $('globalCache2').hide();
+  console.log( "Handler for .click() called." );
+  $('globalCache1').show();
+});
+
+
+
+
+// AJAX CALL--------------------------
+
+$.ajax('data/page-1.json', {
   method: 'get', 
   dataType: 'json',
 })
@@ -51,173 +99,42 @@ $.ajax('data/page-1.json', 'data/page-2.json', {
     horns.forEach(horn => {
       new HornsImage(horn);
     });
-    // globalCache.forEach(item => {
-    //   item.render();
-    // });
-    addDropDownOptions();
-    $('select').on('change', function(){
-      $('section').hide();
-      $('section').each((index, element) => {
-        if(this.value === $(element).attr('data-keyword')){
-          $(element).show();
-        };
-      });
+    globalCache1.forEach(item => {
+      item.render();
     });
-  });
+  }
 
+//Ajax call to add second page?
+,function addPage(){
+  let keywordLocal = [];
+  let hornsArray = [];
 
-  $.ajax('data/page-2.json', {
+  $.ajax(`data/page-2.json`, {
     method: 'get', 
-    dataType: 'json',
-  })
-    .then(horns => {
-      horns.forEach(horn => {
-        new HornsImage(horn);
+    dataType: 'json'})
+  .then ( (data) => {
+      data.forEach( (value) => {
+          new HornsImage(value).render(value);            
+          if (!keywordLocal.includes(value.keyword)){
+            keywordLocal.push(value.keyword);
+          }           
       });
-      globalCache.forEach(item => {
-        item.render();
-      });
-      addDropDownOptions();
-      $('select').on('change', function(){
-        $('section').hide();
-        $('section').each((index, element) => {
-          if(this.value === $(element).attr('data-keyword')){
-            $(element).show();
-          };
-        });
-      });
-    });
-  
+  // addDropDownOptions();    
+});
+});
 
+// addPage();
 
+// $('#P1').append('class')
 
+function render(object){
+  // make a copy of the html template and remove the template labeling
+  let $template = $('#template').html();
 
+  // create our elements dynamically (not relavent in mustache)
+  let rendered = Mustache.render($template, object);
+  console.log(rendered);
 
-
-
-
-
-
-
-
-
-
-
-
-// Used Carrington's code as guide and help
-// let globalCache = [];
-// let keyWords = [];
-
-// // Constructor function MODDING TO SAVE
-// function HornImage(horns) {
-//   this.keyword = horns.keyword;
-//   this.description = horns.description;
-//   this.title = horns.title;
-//   this.image_url = horns.image_url;
-//   globalCache.push(this);
-// }
-
-// HornImage.prototype.render = function () {
-//   let $hornsClone = $("#photo-template").clone();
-//   $("main").append($hornsClone);
-//   $hornsClone.find("img").attr("src", this.image_url);
-//   $hornsClone.find("p").text(this.description);
-//   $hornsClone.find("h3").text(this.title);
-//   // $hornsClone.removeID(‘photo-template’);
-//   // $hornsClone.(‘id’, this.name);
-// }
-
-// function addKeyword(keyword){
-//   if(!keywords.includes(globalCahce.keyword)){
-//     keywords.push(globalCache.keyword);
-//   }
-// }
-
-//   // Create function that loops through globalCache & target keywords
-//   function dropDownRender(keyword) {
-//     this.keyword = globalCache.keyword;
-//   } 
-//   globalCache.forEach(keyword => {
-//     let optionTag = `<option value="${keyword}">${keyword}</option>`;
-//     $('select').append(optionTag);
-//   });
-
-//   dropDownRender.prototype.render = function () {
-//     let $hornsClone = $("#photo-template").clone();
-//     $("header").append(dropDownRender);
-//     dropDownRender.find("option").text(this.keyword);
-//   }
-
-
-
-// // ==============================================================
-
-// HornImage.readJson = () => {
-//   const ajaxSettings = {
-//     method: 'get',
-//     dataType: 'json'
-//   };
-
-//   $.ajax('data/page-1.json', ajaxSettings).then(data => {
-//     data.forEach(item => {
-//       let horns = new HornImage(item);
-//       //call new dropdownRender function here
-//       //Call handleDropdown function- use .then's to chain to ajax call
-//       console.log(horns);
-//       horns.render();
-//     });
-//   });
-// };
-
-// $(() => HornImage.readJson());
-
-
-
-// dropDownRender.readJson = () => {
-//   const ajaxSettings = {
-//     method: 'get',
-//     dataType: 'json'
-//   };
-
-//   $.ajax('data/page-1.json', ajaxSettings).then(data => {
-//     data.forEach(item => {
-//       let menuItem = new dropDownRender(item);
-//       //call new dropdownRender function here
-//       dropDownRender();
-//       //Call handleDropdown function- use .then's to chain to ajax call
-//       console.log(menuItem);
-//       menuItem.render();
-//     });
-//   });
-// };
-
-// $(() => dropDownRender.readJson());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   // JSONARRAY.forEach creates array of all keywords (HornImage.keyword)
-//   // -push to keywordsArray
-//   // jsonarray.forEach(function (keyword) =>{
-//   //   keywordArray.push(HornImage.keyword);
-//   // });
-
-//   // keywordArray.forEach //loops over keywordArray
-//   //  selects only the specific keywords that user chooses};
+  // append to the DOM
+  $('#target').append(rendered)
+}
