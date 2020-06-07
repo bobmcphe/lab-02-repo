@@ -1,53 +1,58 @@
- main {
+body {
+    background-color: ivory;
+    width: 100%;
+}
+
+main {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     flex-wrap: wrap;
      margin: auto;
      width: 100%;
  }
  
  section {
-    display: table;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     max-height: 210px;
-    /* width: 33%; */
-    padding: .1rem;
-    /* margin-top: .2rem;
-    margin-bottom: .2rem; */
+    padding: 1.5rem;
     border: solid black 1px;
-    margin: auto;
     word-wrap: break-word;
     background-color: burlywood;
+    margin: 25px;
 } 
 
 
 section img {
-    max-height: 150px;
-    /* margin-left: auto;
-    margin-right: auto;
-    width: 8em */
+    height: 200px;
     margin: 1em;
     border: solid red 1px;
     margin-top: 1px;
-    
+    margin: auto;
+    margin-bottom: 50px;
 }
 
 select {
-    /* clear: both;
+    clear: both;
     width: 10rem;
-    width: 50%;
-    margin: 0 auto; */
-    /* margin-left: auto; */
-    /* margin-left: 50%; */
+    width: 25%;
+    margin: 0 auto;
 }
 
 h1{
     font-family: 'Arial', cursive;
     font-size: 30px;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 h2{
     text-align: center;
     padding-top: 5px;
     padding-bottom: -3px;
+    font-style;
 }
 
 p {
@@ -68,39 +73,42 @@ footer {
 }
 
 header {
-    /* align-content: center; */
-    /* margin: 0 auto; */
     width: 50rem;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 /* On Desktop, float the divs in the section and center them */
 @media(min-width: 960px) {
 
-    body{
-    background-color: navy;
+    body {
+      background-color: rgb(87, 87, 121);
     }
 
     select {
-        width: 10rem;
-        width: 10%;
+        width: 25%;
         margin: auto;
-        /* margin-left: 50%; */
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     section {
-      float: left;
-      margin: 20px;
-      overflow: auto;
-      width: 30%;
+      margin: auto;
+      width: 25%;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
 
-      section:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
+    section:after {
+       content: "";
+       display: table;
+       clear: both;
+     }
 
       section img {
           margin-left: auto;
